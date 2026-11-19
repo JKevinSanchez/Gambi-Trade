@@ -1,19 +1,21 @@
 from flask import Flask, session
 from modelos import ActivoFinanciero, crear_desde_diccionario
-
+from datetime import timedelta
 app = Flask(__name__)
 
 # Necesaria para que Flask pueda firmar la cookie de la session
 app.secret_key = "clave_secreta_del_proyecto"
-
+# La sesión permanecerá durante 7 días
+app.permanent_session_lifetime = timedelta(days=7)
 
 # ---------- Funciones auxiliares ----------
 
-def obtener_activos():
-    """Devuelve la lista de criptos guardadas en la session como objetos.
 
-    Si todavía no hay ninguna, crea la lista vacía.
-    """
+def obtener_activos():
+    """Recupera los activos guardados en la sesión."""
+
+    session.permanent = True
+
     lista_objetos = []
 
     if "activos" not in session:
@@ -23,6 +25,7 @@ def obtener_activos():
         lista_objetos.append(crear_desde_diccionario(datos))
 
     return lista_objetos
+
 
 
 def guardar_activos(lista_objetos):

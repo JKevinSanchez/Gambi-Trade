@@ -5,12 +5,17 @@ class ActivoFinanciero:
     y valida los valores cuando se modifican mediante los setters.
     """
 
+
+class ActivoFinanciero:
+
     def __init__(self, id, nombre, simbolo, cantidad, precio):
         self._id = id
-        self._nombre = nombre
-        self._simbolo = simbolo
-        self._cantidad = cantidad
-        self._precio = precio
+        self.set_nombre(nombre)
+        self.set_simbolo(simbolo)
+        self.set_cantidad(cantidad)
+        self.set_precio(precio)
+
+
 
     # ---------- Getters ----------
     def get_id(self):
@@ -41,17 +46,27 @@ class ActivoFinanciero:
             raise ValueError("El símbolo no puede estar vacío")
         self._simbolo = simbolo.upper()
 
+
     def set_cantidad(self, cantidad):
-        """Cambia la cantidad. Lanza ValueError si es negativa."""
-        if cantidad < 0:
-            raise ValueError("La cantidad no puede ser negativa")
+        """Comprueba que la cantidad sea mayor que cero."""
+        cantidad = float(cantidad)
+
+        if cantidad <= 0:
+            raise ValueError("La cantidad debe ser mayor que cero")
+
         self._cantidad = cantidad
 
+
+
     def set_precio(self, precio):
-        """Cambia el precio. Lanza ValueError si es negativo."""
-        if precio < 0:
-            raise ValueError("El precio no puede ser negativo")
+        """Comprueba que el precio sea mayor que cero."""
+        precio = float(precio)
+
+        if precio <= 0:
+            raise ValueError("El precio debe ser mayor que cero")
+
         self._precio = precio
+
 
     # ---------- Métodos auxiliares ----------
     def calcular_valor_total(self):
