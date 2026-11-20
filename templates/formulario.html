@@ -1,1 +1,51 @@
 
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }}{% endblock %}
+
+{% block contenido %}
+    <!-- Espera: titulo, accion, valores y errores (todos los datos llegan desde app.py) -->
+    <!-- Si app.py no envía valores o errores, se usa un diccionario vacío -->
+    {% set valores = valores or {} %}
+    {% set errores = errores or {} %}
+
+    <h2>{{ titulo }}</h2>
+
+    <form action="{{ accion }}" method="post">
+
+        <label>Nombre del activo:
+            <input type="text" name="nombre" value="{{ valores.nombre }}" required>
+        </label>
+        {% if errores.nombre %}
+            <p class="error">{{ errores.nombre }}</p>
+        {% endif %}
+        <br><br>
+
+        <label>Símbolo:
+            <input type="text" name="simbolo" value="{{ valores.simbolo }}" required>
+        </label>
+        {% if errores.simbolo %}
+            <p class="error">{{ errores.simbolo }}</p>
+        {% endif %}
+        <br><br>
+
+        <label>Cantidad:
+            <input type="text" name="cantidad" value="{{ valores.cantidad }}" required>
+        </label>
+        {% if errores.cantidad %}
+            <p class="error">{{ errores.cantidad }}</p>
+        {% endif %}
+        <br><br>
+
+        <label>Precio de compra (€):
+            <input type="text" name="precio" value="{{ valores.precio }}" required>
+        </label>
+        {% if errores.precio %}
+            <p class="error">{{ errores.precio }}</p>
+        {% endif %}
+        <br><br>
+
+        <input type="submit" value="Guardar">
+    </form>
+    <br>
+    <a href="/">Volver</a>
+{% endblock %}
