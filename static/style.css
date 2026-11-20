@@ -1,0 +1,47 @@
+/* Estilos sencillos de GAMPITRADE, con los colores de la guía de estilo */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #F5F7FB;
+    color: #0F1F4B;
+    margin: 24px;
+}
+
+h1 {
+    border-bottom: 2px solid #C9A227;
+    padding-bottom: 8px;
+}
+
+/* Mensajes de error bajo cada campo */
+.error {
+    color: #A32D2D;
+    background: #FDF0EE;
+    border-left: 4px solid #C0392B;
+    padding: 6px;
+}
+
+/* Botón rojo para eliminar */
+.eliminar {
+    background: #C0392B;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: white;
+}
+
+th, td {
+    border-bottom: 1px solid #D9DEE8;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #EEF2F8;
+}
