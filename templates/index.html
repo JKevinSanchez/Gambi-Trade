@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block titulo %}Cartera{% endblock %}
+
+{% block contenido %}
+    <!-- Espera: activos (lista de ActivoFinanciero) y total (valor total ya calculado en app.py) -->
+    <h2>Mi cartera ficticia</h2>
+    <p>Valor total: {{ total }} €</p>
+
+    {% if activos %}
+        <table>
+            <tr>
+                <th>Activo</th>
+                <th>Cantidad</th>
+                <th>Precio de compra</th>
+                <th>Valor</th>
+                <th>Acciones</th>
+            </tr>
+            {% for activo in activos %}
+                <tr>
+                    <td>{{ activo.get_nombre() }} ({{ activo.get_simbolo() }})</td>
+                    <td>{{ activo.get_cantidad() }}</td>
+                    <td>{{ activo.get_precio() }} €</td>
+                    <td>{{ activo.calcular_valor_total() }} €</td>
+                    <td>
+                        <a href="/activos/{{ activo.get_id() }}/editar">Editar</a>
+                        <form action="/activos/{{ activo.get_id() }}/eliminar" method="post">
+                            <input class="eliminar" type="submit" value="Eliminar">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Todavía no has añadido ninguna compra.</p>
+    {% endif %}
+{% endblock %}
