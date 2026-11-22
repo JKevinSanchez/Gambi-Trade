@@ -1,4 +1,4 @@
-/* Estilos de GAMPITRADE, con los colores y fuentes de la guía de estilo
+/* Estilos de GAMBITRADE, con los colores y fuentes de la guía de estilo
    Azul marino #0F1F4B · Dorado #C9A227 · Fondo #F5F7FB · Rojo #C0392B */
 
 :root {
@@ -65,8 +65,9 @@ input:focus-visible {
 
 /* ---------- Cabecera y pie ---------- */
 .cabecera {
-    background: var(--marino);
-    color: white;
+    background: white;
+    color: var(--marino);
+    border-bottom: 3px solid var(--dorado);
 }
 
 .cabecera-interior {
@@ -74,8 +75,8 @@ input:focus-visible {
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .marca {
@@ -83,8 +84,16 @@ input:focus-visible {
     font-weight: 700;
     font-size: 1.25rem;
     letter-spacing: 0.04em;
-    color: var(--dorado);
+    color: var(--marino);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    height: 52px;
+    width: auto;
 }
 
 .navegacion {
@@ -93,7 +102,7 @@ input:focus-visible {
 }
 
 .navegacion a {
-    color: white;
+    color: var(--marino);
     text-decoration: none;
     font-weight: 500;
     padding: 4px 0;

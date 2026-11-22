@@ -1,5 +1,6 @@
 import math
 
+
 def _a_numero(valor, etiqueta):
     """Convierte un texto o número en float.
 
